@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewX - Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Interview<span>X</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="categories.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </div>
+    </nav>
+
+    <main class="result-container">
+        <div class="result-card">
+            <div class="result-icon">🏆</div>
+
+            <h1>Quiz Completed!</h1>
+            <p class="result-subtitle">Here is your InterviewX performance</p>
+
+            <div class="result-score">
+                <span id="percentage">0%</span>
+                <p><span id="score">0</span> out of <span id="total">0</span> correct</p>
+            </div>
+
+            <div class="result-stats">
+                <div class="result-stat">
+                    <span class="correct-icon">✓</span>
+                    <h3 id="correct">0</h3>
+                    <p>Correct</p>
+                </div>
+
+                <div class="result-stat">
+                    <span class="incorrect-icon">✕</span>
+                    <h3 id="incorrect">0</h3>
+                    <p>Incorrect</p>
+                </div>
+            </div>
+
+            <h2 id="message">Keep Practicing!</h2>
+            <p id="feedback">Every question helps you improve.</p>
+
+            <div class="result-actions">
+                <button id="tryAgainBtn">Try Again ↻</button>
+                <button class="progress-btn" onclick="window.location.href='progress.html'">View Progress</button>
+                <button class="home-btn" onclick="window.location.href='index.html'">← Back to Home</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const score = Number(localStorage.getItem("interviewXScore")) || 0;
+        const total = Number(localStorage.getItem("interviewXTotal")) || 0;
+        const category = localStorage.getItem("interviewXCategory") || "HTML";
+        const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
+        const incorrect = total - score;
+
+        document.getElementById("score").textContent = score;
+        document.getElementById("total").textContent = total;
+        document.getElementById("percentage").textContent = percentage + "%";
+        document.getElementById("correct").textContent = score;
+        document.getElementById("incorrect").textContent = incorrect;
+
+        if (percentage >= 80) {
+            document.getElementById("message").textContent = "Excellent Work!";
+            document.getElementById("feedback").textContent = "Outstanding! You are mastering " + category + ".";
+        } else if (percentage >= 50) {
+            document.getElementById("message").textContent = "Good Job!";
+            document.getElementById("feedback").textContent = "Good progress! Keep practicing " + category + ".";
+        } else {
+            document.getElementById("message").textContent = "Keep Practicing!";
+            document.getElementById("feedback").textContent = "Review the concepts and try " + category + " again.";
+        }
+
+        document.getElementById("tryAgainBtn").addEventListener("click", function () {
+            localStorage.setItem("selectedCategory", category);
+            window.location.href = "quiz.html";
+        });
+    </script>
+
+</body>
+</html>

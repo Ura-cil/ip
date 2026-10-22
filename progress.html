@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewX | Progress</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Interview<span>X</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="categories.html">Practice</a>
+            <a href="progress.html">Progress</a>
+        </div>
+    </nav>
+
+    <main class="progress-page">
+        <h1>Your <span>Progress</span></h1>
+        <p>Track your interview preparation journey.</p>
+
+        <div class="progress-cards">
+            <div class="progress-card">
+                <h3>Questions Attempted</h3>
+                <p id="attempted">0</p>
+            </div>
+
+            <div class="progress-card">
+                <h3>Correct Answers</h3>
+                <p id="correct">0</p>
+            </div>
+
+            <div class="progress-card">
+                <h3>Accuracy</h3>
+                <p id="accuracy">0%</p>
+            </div>
+
+            <div class="progress-card">
+                <h3>Best Score</h3>
+                <p id="bestScore">0%</p>
+            </div>
+        </div>
+
+        <section class="history-section">
+            <h2>Practice History</h2>
+            <div id="history">
+                <p>No practice history yet. Start a quiz!</p>
+            </div>
+        </section>
+
+        <button id="resetProgress">Reset Progress</button>
+    </main>
+
+    <script src="progress.js"></script>
+</body>
+</html>
